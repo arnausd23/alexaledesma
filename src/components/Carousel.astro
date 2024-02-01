@@ -1,0 +1,36 @@
+---
+---
+
+<div id="vertical-marquee" class="h-screen">
+  <div id="slot-container">
+    <slot/>
+  </div>
+</div>
+
+
+<script>
+	import { Marquee } from '../services/Marquee/marquee';
+	import { loop } from '../services/Marquee/loop';
+
+	const $marquee = document.getElementById('vertical-marquee');
+	const $slotContent = document.getElementById('slot-container');
+console.log($slotContent)
+
+	const marquee = (new Marquee($marquee, {
+		rate: -100,
+    upDown: true,
+	}));
+
+	loop(
+		marquee,
+		[
+			() => 'Contrary to popular belief',
+      // () => $slotContent,
+		],
+		() => {
+			const $separator = document.createElement('div');
+			$separator.innerHTML = '&nbsp•&nbsp';
+			return $separator;
+		},
+	);
+</script>

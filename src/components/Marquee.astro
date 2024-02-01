@@ -1,0 +1,27 @@
+---
+---
+
+<div id="marquee"></div>
+
+
+<script>
+	import { Marquee, loop } from 'dynamic-marquee';
+
+	const $marquee = document.getElementById('marquee');
+
+	const marquee = (new Marquee($marquee, {
+		rate: -100,
+	}));
+
+	loop(
+		marquee,
+		[
+			() => 'Contrary to popular belief'
+		],
+		() => {
+			const $separator = document.createElement('div');
+			$separator.innerHTML = '&nbsp•&nbsp';
+			return $separator;
+		},
+	);
+</script>

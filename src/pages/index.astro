@@ -1,0 +1,23 @@
+---
+import Carousel from '../components/Carousel.astro';
+import Marquee from '../components/Marquee.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<section class="h-screen">
+			<Marquee />
+			<Carousel>
+				<h>slot text</h>
+			</Carousel>
+		</section>
+
+		<section class="h-screen">
+			<h2 class="text-center text-primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae fuga possimus id? Totam cum aut quas corporis necessitatibus a debitis incidunt sint, ullam voluptatum sapiente et enim fugiat modi repellendus.</h2>
+			<section class="flex gap-4">
+			</section>
+		</section> 
+	</main>
+</Layout>
+
