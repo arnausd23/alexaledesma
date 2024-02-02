@@ -7,16 +7,13 @@
 		<li>
       <img src="https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1" alt="">
 		</li>
-		<li>
-      <img src="https://assets.entrepreneur.com/content/3x2/2000/1691157794-petting-dog-reduce-stress-0823-g1220822325.jpg" alt="">
-		</li>
 	</ul>
 </div>
 
 <style>
 
 :root {
-  --marquee-width: 80vw;
+  --marquee-width: 100vw;
   --marquee-height: 20vh;
   /* --marquee-elements: 12; */ /* defined with JavaScript */
   --marquee-elements-displayed: 5;
@@ -68,16 +65,14 @@
   align-items: center;
   /* text-align: center; */
   flex-shrink: 0;
-  width: var(--marquee-element-width);
   max-height: 100%;
+  width: var(--marquee-element-width);
   font-size: calc(var(--marquee-height)*3/4); /* 5rem; */
   white-space: nowrap;
 }
 
 .marquee-content li img {
-  width: 100%;
-  /* height: 100%; */
-  border: 2px solid #eee;
+  height: auto;
 }
 
 @media (max-width: 600px) {

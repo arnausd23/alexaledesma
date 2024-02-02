@@ -2,19 +2,20 @@
 
 ---
 
-<div class="carousel">
-	<ul class="carousel-content">
-		<li>
-      <img src="https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1" alt="">
-		</li>
-		<li>
-      <img src="https://assets.entrepreneur.com/content/3x2/2000/1691157794-petting-dog-reduce-stress-0823-g1220822325.jpg" alt="">
-		</li>
-	</ul>
+<div class="carousel overflow-hidden h-screen inline-block">
+	<div class="carousel-content h-full inline-flex flex-col">
+		<ul class="carousel-content">
+			<li>
+				<img src="https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1" alt="">
+			</li>
+			<li>
+				<img src="https://assets.entrepreneur.com/content/3x2/2000/1691157794-petting-dog-reduce-stress-0823-g1220822325.jpg" alt="">
+			</li>
+		</ul>
+	</div>
 </div>
 
 <style>
-
 :root {
   --carousel-width: 80vw;
   --carousel-height: 10vh;
@@ -24,20 +25,8 @@
   --carousel-animation-duration: calc(var(--carousel-elements) * 3s);
 }
 
-.carousel {
-  /* width: var(--carousel-width);
-  height: var(--carousel-height); */
-  background-color: #111;
-  color: #eee;
-  overflow: hidden;
-  position: relative;
-	width: fit-content;
-}
+
 .carousel-content {
-  height: 100%;
-  list-style: none;
-  display: flex;
-	flex-direction: column;
   animation: scrolling-up var(--carousel-animation-duration) linear infinite;
 }
 .carousel-content:hover {
@@ -55,13 +44,11 @@
   flex-shrink: 0;
   width: var(--carousel-element-height);
   max-height: 100%;
-  font-size: calc(var(--carousel-height)*3/4); /* 5rem; */
+  font-size: calc(var(--carousel-height)*3/4);
   white-space: nowrap;
-	width: auto;
 }
 
-.carousel-content li img {
-  width: 100%;
+img {
 	height: var(--carousel-height);
 }
 
@@ -79,7 +66,7 @@
 <script>
 	const root = document.documentElement;
 	const carouselElementsDisplayed = getComputedStyle(root).getPropertyValue("--carousel-elements-displayed");
-	const carouselContent = document.querySelector("ul.carousel-content");
+	const carouselContent = document.querySelector(".carousel-content");
 
 	root.style.setProperty("--carousel-elements", carouselContent.children.length);
 	
