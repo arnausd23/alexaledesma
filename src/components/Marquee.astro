@@ -5,21 +5,15 @@
 <div class="marquee">
 	<ul class="marquee-content">
 		<li>
-			<img src="https://flowbite.com/docs/images/examples/image-1@2x.jpg" alt="">
+      <img src="https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1" alt="">
+		</li>
+		<li>
+      <img src="https://assets.entrepreneur.com/content/3x2/2000/1691157794-petting-dog-reduce-stress-0823-g1220822325.jpg" alt="">
 		</li>
 	</ul>
 </div>
 
 <style>
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #eee;
-  color: #111;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 :root {
   --marquee-width: 80vw;
@@ -101,9 +95,9 @@ body {
 	const root = document.documentElement;
 	const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
 	const marqueeContent = document.querySelector("ul.marquee-content");
-
+  
 	root.style.setProperty("--marquee-elements", marqueeContent.children.length);
-console.log(marqueeElementsDisplayed)
+	
 	for(let i=0; i<marqueeElementsDisplayed + 1; i++) {
 		marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
 	}
