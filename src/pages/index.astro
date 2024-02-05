@@ -6,16 +6,16 @@ import VisualEditor from '../components/VisualEditor.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<main class="h-screen bg-red-400">
-		<section class="h-screen">
+
+<VisualEditor isVisible={true}>
+	<main class=" bg-red-400">
+		<section class="">
 			<!-- <Marquee /> -->
-			<Carousel />
+			<!-- <Carousel /> -->
 		</section>
 
-		<section class="h-screen bg-blue-300">
+		<section class=" bg-blue-300">
 			<!-- <ProjectsGrid/> -->
-			<VisualEditor />
-		</section> 
+			</section> 
 	</main>
-</Layout>
+</VisualEditor>

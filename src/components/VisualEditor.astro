@@ -1,9 +1,9 @@
 ---
-const search = Astro.request;
-console.log(search);
 ---
 
-<div id="editorjs"></div>
+<div id="editorjs">
+  <slot />
+</div>
 <button id="editorjs-save">SAVE editor</button>
 
 <script>
@@ -11,27 +11,44 @@ console.log(search);
 	import Paragraph from '@editorjs/paragraph';
 	import Header from '@editorjs/header';
 	
-	const editor = new EditorJS({
-		tools: {
-			header: {
-				class: Header,
-				inlineToolbar : true,
-			},
-			paragraph: {
-				class: Paragraph,
-				inlineToolbar:  true,
-			},
-		},
-	 autofocus: true,
-	 placeholder: 'Let`s write an awesome story!'
-	})
+  const editorJs = document.getElementById('editorjs');
+  if (editorJs) {
+    const editor = new EditorJS({
+      tools: {
+        header: {
+          class: Header,
+          inlineToolbar : true,
+        },
+        paragraph: {
+          class: Paragraph,
+          inlineToolbar:  true,
+        },
+      },
+      autofocus: true,
+      placeholder: 'Let`s write an awesome story!',
+      readOnly: false,
+      data: {
+          "time": 1707132090850,
+          "blocks": [
+              {
+                  "id": "h0CJCZkq16",
+                  "type": "paragraph",
+                  "data": {
+                      "text": "Hola primer test"
+                  }
+              }
+          ],
+          "version": "2.29.0"
+      }
+    })
 
-	document.getElementById('editorjs-save').addEventListener('click', async () => {
-		await editor.isReady;
-		editor.save().then((outputData) => {
-			console.log('Article data: ', outputData)
-		}).catch((error) => {
-			console.error('Saving failed: ', error)
-		});
-	})
+    document.getElementById('editorjs-save').addEventListener('click', async () => {
+      await editor.isReady;
+      editor.save().then((outputData) => {
+        console.log('Article data: ', outputData)
+      }).catch((error) => {
+        console.error('Saving failed: ', error)
+      });
+    })
+  }
 </script>
