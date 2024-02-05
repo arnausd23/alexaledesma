@@ -1,9 +1,9 @@
 ---
 ---
 
-<div class="bento-grid">
+<div class="bento-grid carousel-content">
   <div class="col-0">
-    <div id="testDiv"></div>
+    <!-- <div id="testDiv"></div> -->
     <img src="https://images.pexels.com/photos/5386829/pexels-photo-5386829.jpeg" alt="">
     <img src="https://images.pexels.com/photos/18273081/pexels-photo-18273081/free-photo-of-islandia-mar-paisaje-montanas.jpeg" alt="">
     <img src="https://images.pexels.com/photos/18624573/pexels-photo-18624573/free-photo-of-mujer-calle-tarde-precioso.jpeg">
@@ -21,6 +21,42 @@
 </div>
 
 <style>
+  :root {
+    --carousel-width: 80vw;
+    --carousel-height: 10vh;
+    /* --carousel-elements: 12; */ /* defined with JavaScript */
+    --carousel-elements-displayed: 1;
+    --carousel-element-height: calc(var(--carousel-height) / var(--carousel-elements-displayed));
+    --carousel-animation-duration: calc(var(--carousel-elements) * 3s);
+  }
+
+
+  .col-0 {
+    animation: scrolling-up 15s linear infinite;
+  }
+  .carousel-content:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scrolling-up {
+    0% { transform: translateY(0); }
+    /* 100% { transform: translateY(calc(-1 * var(--carousel-element-height) * var(--carousel-elements))); } */
+    100% { transform: translateY(-123.34vw); }
+  }
+
+  @media (max-width: 600px) {
+    html { font-size: 12px; }
+    :root {
+      --carousel-width: 100vw;
+      --carousel-height: 16vh;
+      --carousel-elements-displayed: 3;
+    }
+    .col-0 {
+      animation: none;
+    }
+  }
+
+  /* GRID */
   .bento-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -61,6 +97,28 @@
     display: block;
   }
 </style>
+
+<script>
+	// const root = document.documentElement;
+	// const carouselElementsDisplayed = getComputedStyle(root).getPropertyValue("--carousel-elements-displayed");
+	// const carouselContent = document.querySelector(".carousel-content");
+
+	// root.style.setProperty("--carousel-elements", carouselContent.children.length);
+	
+	// for(let i=0; i<carouselElementsDisplayed + 1; i++) {
+	// 	carouselContent.appendChild(carouselContent.children[i].cloneNode(true));
+	// }
+
+
+
+  const col = document.querySelector(".col-0");
+  const childs = col?.childElementCount;
+console.log(col.clientHeight)
+  for (let index = 0; index < childs; index++) {
+    col.appendChild(col.children[index].cloneNode(true));
+  }
+
+</script>
 
 <script>
   const myDiv = document.getElementById('testDiv');
