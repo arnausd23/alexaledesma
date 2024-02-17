@@ -25,7 +25,6 @@
 
   .scroll-up {
     animation: scrolling-up 10s linear infinite;
-    /* transform: translateY(var(--translate-distance)) */
   }
 
   .scroll-up:hover {
@@ -34,9 +33,7 @@
 
   @keyframes scrolling-up {
     0% { transform: translateY(0); }
-    /* 100% { transform: translateY(-124.1vw); } */  /* -10.8 */
-    /* 100% { transform: translateY(-1254px); }  -10.778 */
-    100% { transform: translateY(var(--translate-distance)); }  /* -10.778 */
+    100% { transform: translateY(var(--translate-distance)); }
   }
 
   @media (max-width: 600px) {
@@ -102,7 +99,7 @@
       const childs = col?.childElementCount;
       const colImgs = col.getElementsByTagName("img")
 
-      const gapBetweenImgs = (colImgs.length) *30
+      const gapBetweenImgs = (colImgs.length) * 30 // gap of grid in px
       let colHeight = gapBetweenImgs;
       for (let index = 0; index < colImgs.length; index++) {
         colHeight += colImgs[index].height
@@ -119,7 +116,7 @@
 <script>
   // JS para el div en hover de un proyecto
   const myDiv = document.getElementById('projectDetail');
-
+console.log(myDiv.style.display)
   if (myDiv && myDiv.style.display !== 'none') {
     function move(e) {
       const x = e.pageX;
