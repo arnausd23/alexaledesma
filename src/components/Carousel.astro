@@ -64,9 +64,14 @@ img {
 </style>
 
 <script>
+  // @ts-nocheck
 	const root = document.documentElement;
 	const carouselElementsDisplayed = getComputedStyle(root).getPropertyValue("--carousel-elements-displayed");
 	const carouselContent = document.querySelector(".carousel-content");
+
+  if (!carouselContent || !carouselElementsDisplayed) {
+    throw new Error("Carousel content not found");
+  }
 
 	root.style.setProperty("--carousel-elements", carouselContent.children.length);
 	

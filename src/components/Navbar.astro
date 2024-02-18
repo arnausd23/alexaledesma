@@ -25,7 +25,7 @@
         <img class="w-20" src={logo} alt="website logo" />
       </a>
       {navLinks.map((item) => (
-        <li key={item.label} class="max-lg:hidden">
+        <li class="max-lg:hidden">
           <a
             href={item.href}
             class="font-montserrat leading-normal text-lg hover:underline hover:underline-offset-4"
@@ -61,7 +61,7 @@
     </a>
     <ul class="bg-slate-100 pt-24 lg:hidden flex flex-col items-center justify-center h-full ">
       {navLinks.map((item) => (
-        <li key={item.label} class="my-3">
+        <li class="my-3">
           <a
             href={item.href}
             class="font-montserrat leading-normal text-3xl"
@@ -87,6 +87,10 @@
   const header = document.getElementById('mobile-menu-content');
   const openMenu = document.getElementById('open-menu');
   const closeMenu = document.getElementById('close-menu');
+
+  if (!header || !openMenu || !closeMenu) {
+    throw new Error('Missing elements');
+  }
 
   openMenu.addEventListener('click', () => {
     header.setAttribute("data-menu", "open"); 

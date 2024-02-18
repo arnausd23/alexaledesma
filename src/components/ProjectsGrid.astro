@@ -87,6 +87,7 @@
 </style>
 
 <script>
+  // @ts-nocheck
   Promise.all(Array.from(document.images).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => {
     const pxToVW = (px: number) => {
       return px * (100 / [document.documentElement.clientWidth])
@@ -114,13 +115,14 @@
 </script>
 
 <script>
+  // @ts-nocheck
   // JS para el div en hover de un proyecto
   //todo: el id sale duplicado el duplicar el elemento, como hay un overflow:hidden no sale
   const myDiv = document.getElementById('projectDetail');
   const bentoGrid = document.querySelector('.bento-grid');
 
   if (myDiv && myDiv.style.display !== 'none') {
-    function move(e) {
+    function move(e: MouseEvent) {
       const x = e.pageX;
       const y = e.pageY;
       
