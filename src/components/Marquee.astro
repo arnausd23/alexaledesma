@@ -5,8 +5,29 @@
 <div class="marquee">
 	<ul class="marquee-content">
 		<li>
-      <img src="https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1" alt="">
+      <img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
 		</li>
+    <li>
+      <p>Product Strategy</p>
+    </li>
+    <li>
+      <img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
+    </li>
+    <li>
+      <p>Graphic Design</p>
+    </li>
+    <li>
+      <img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
+    </li>
+    <li>
+      <p>Brand Development</p>
+    </li>
+    <li>
+      <img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
+    </li>
+    <li>
+      <p>UX & Product Design</p>
+    </li>
 	</ul>
 </div>
 
@@ -14,7 +35,7 @@
 
 :root {
   --marquee-width: 100vw;
-  --marquee-height: 20vh;
+  --marquee-height: 10vh;
   /* --marquee-elements: 12; */ /* defined with JavaScript */
   --marquee-elements-displayed: 5;
   --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
@@ -24,27 +45,11 @@
 .marquee {
   width: var(--marquee-width);
   height: var(--marquee-height);
-  background-color: #111;
+  background-color: #c5f2e7;
   color: #eee;
   overflow: hidden;
   position: relative;
   width: 100vw;
-}
-.marquee:before, .marquee:after {
-  position: absolute;
-  top: 0;
-  width: 10rem;
-  height: 100%;
-  content: "";
-  z-index: 1;
-}
-.marquee:before {
-  left: 0;
-  background: linear-gradient(to right, #111 0%, transparent 100%);
-}
-.marquee:after {
-  right: 0;
-  background: linear-gradient(to left, #111 0%, transparent 100%);
 }
 .marquee-content {
   list-style: none;
@@ -63,11 +68,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* text-align: center; */
+  color: #333;
   flex-shrink: 0;
   max-height: 100%;
   width: var(--marquee-element-width);
-  font-size: calc(var(--marquee-height)*3/4); /* 5rem; */
+  /* font-size: calc(var(--marquee-height)*3/4); 5rem; */
+  font-size: 2.3rem;
   white-space: nowrap;
 }
 

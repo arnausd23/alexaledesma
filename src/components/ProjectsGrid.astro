@@ -2,7 +2,7 @@
 
 ---
 
-<div class="bento-grid carousel-content relative">
+<div class="bento-grid carousel-content">
   <div class="col-0 scroll-up">
     <div id="projectDetail"></div>
     <img src="https://images.pexels.com/photos/5386829/pexels-photo-5386829.jpeg" alt="">
@@ -96,8 +96,8 @@
   
     for (let index = 0; index < cols.length; index++) {
       const col = cols[index];
-      const childs = col?.childElementCount;
       const colImgs = col.getElementsByTagName("img")
+      const childs = colImgs?.length;
 
       const gapBetweenImgs = (colImgs.length) * 30 // gap of grid in px
       let colHeight = gapBetweenImgs;
@@ -107,8 +107,7 @@
 
       col.style.setProperty("--translate-distance", `-${pxToVW(colHeight)}vw`);
       for (let index = 0; index < childs; index++) {
-        console.log(col.children[index])
-        col.appendChild(col.children[index].cloneNode(true));
+        col.appendChild(colImgs[index].cloneNode(true));
       }
     }
 });
@@ -118,22 +117,19 @@
   // JS para el div en hover de un proyecto
   //todo: el id sale duplicado el duplicar el elemento, como hay un overflow:hidden no sale
   const myDiv = document.getElementById('projectDetail');
+  const bentoGrid = document.querySelector('.bento-grid');
 
   if (myDiv && myDiv.style.display !== 'none') {
     function move(e) {
       const x = e.pageX;
       const y = e.pageY;
       
-      console.log(x, y)
       myDiv.style.left = x  + 'px';
       myDiv.style.top = y  + 'px';
-      // myDiv.style.left = x - 50 + 'px';
-      // myDiv.style.top = y - 50 + 'px';
     }
     
-    document.addEventListener('mousemove', e => {
+    bentoGrid.addEventListener('mousemove', e => {
       move(e)
     });
-    // aplicar todo este JS a elemento que se muestre solo en :hover, sino display: none
   }
 </script>

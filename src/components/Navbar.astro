@@ -1,0 +1,98 @@
+---
+  import OpenIcon from './Icons/OpenIcon.astro';
+  import CloseIcon from './Icons/CloseIcon.astro';
+
+  const navLinks = [
+    { href: "#join-us", label: "Join Us" },
+    { href: "#timeline", label: "Timeline" },
+    { href: "#timer", label: "Timer" },
+    { href: "#information", label: "Information" },
+    { href: "#contact", label: "Contact" },
+    { href: "#gallery", label: "Gallery" },
+  ];
+
+  const logo = 'https://images.squarespace-cdn.com/content/v1/5aca38252714e5f0e0fdaf3e/0fa593ac-22b3-4c32-82ac-5425169a14e5/logo04.png?format=1500w'
+---
+
+<header class="sm:px-8 px-4 py-2 z-10 w-full fixed bg-white top-0">
+  <nav class="max-lg:flex justify-between items-center max-container">
+    <ul class="flex lg:grid grid-cols-7 justify-center items-center gap-16">
+      <a
+        href="/"
+        class="text-3xl font-bold "
+        style={{ gridArea: "1/4" }}
+      >
+        <img class="w-20" src={logo} alt="website logo" />
+      </a>
+      {navLinks.map((item) => (
+        <li key={item.label} class="max-lg:hidden">
+          <a
+            href={item.href}
+            class="font-montserrat leading-normal text-lg hover:underline hover:underline-offset-4"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div
+      id="open-menu"
+      class="hidden max-lg:block cursor-pointer"
+    >
+      <OpenIcon />
+    </div>
+  </nav>
+</header>
+
+
+<div id="mobile-menu-content" data-menu="closed">
+  <nav class="fixed z-50 top-0 right-0 left-0 bottom-0 lg:bottom-auto bg-slate-100">
+    <div
+      id="close-menu"
+      class="hidden max-lg:block fixed right-0  px-8 py-4 cursor-pointer"
+    >
+      <CloseIcon />
+    </div>
+    <a
+      href="/"
+      class="text-3xl font-bold absolute top-3 left-1/2 -translate-x-1/2 lg:hidden"
+    >
+      <img class="w-28" src={logo} alt="website logo" />
+    </a>
+    <ul class="bg-slate-100 pt-24 lg:hidden flex flex-col items-center justify-center h-full ">
+      {navLinks.map((item) => (
+        <li key={item.label} class="my-3">
+          <a
+            href={item.href}
+            class="font-montserrat leading-normal text-3xl"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>
+
+<style>
+  #mobile-menu-content[data-menu="open"] {
+    display: block;
+  }
+  #mobile-menu-content[data-menu="closed"] {
+    display: none;
+  }
+</style>
+
+<script>
+  const header = document.getElementById('mobile-menu-content');
+  const openMenu = document.getElementById('open-menu');
+  const closeMenu = document.getElementById('close-menu');
+
+  openMenu.addEventListener('click', () => {
+    header.setAttribute("data-menu", "open"); 
+  });
+  closeMenu.addEventListener('click', () => {
+    console.log('close')
+    header.setAttribute("data-menu", "closed"); 
+  });
+</script>
