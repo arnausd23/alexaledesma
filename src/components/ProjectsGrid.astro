@@ -2,7 +2,7 @@
 
 ---
 
-<div class="bento-grid carousel-content">
+<div class="bento-grid carousel-content relative">
   <div class="col-0 scroll-up">
     <div id="projectDetail"></div>
     <img src="https://images.pexels.com/photos/5386829/pexels-photo-5386829.jpeg" alt="">
@@ -22,9 +22,8 @@
 </div>
 
 <style>
-
   .scroll-up {
-    animation: scrolling-up 10s linear infinite;
+    animation: scrolling-up 30s linear infinite;
   }
 
   .scroll-up:hover {
@@ -77,6 +76,7 @@
     width: 100px;
     height: 100px;
     background-color: red;
+    z-index: 999;
   }
   #projectDetail {
     display: none;
@@ -107,6 +107,7 @@
 
       col.style.setProperty("--translate-distance", `-${pxToVW(colHeight)}vw`);
       for (let index = 0; index < childs; index++) {
+        console.log(col.children[index])
         col.appendChild(col.children[index].cloneNode(true));
       }
     }
@@ -115,15 +116,17 @@
 
 <script>
   // JS para el div en hover de un proyecto
+  //todo: el id sale duplicado el duplicar el elemento, como hay un overflow:hidden no sale
   const myDiv = document.getElementById('projectDetail');
-console.log(myDiv.style.display)
+
   if (myDiv && myDiv.style.display !== 'none') {
     function move(e) {
       const x = e.pageX;
       const y = e.pageY;
       
-      myDiv.style.left = x + 10 + 'px';
-      myDiv.style.top = y + 10 + 'px';
+      console.log(x, y)
+      myDiv.style.left = x  + 'px';
+      myDiv.style.top = y  + 'px';
       // myDiv.style.left = x - 50 + 'px';
       // myDiv.style.top = y - 50 + 'px';
     }
