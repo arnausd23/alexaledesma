@@ -8,9 +8,33 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Welcome to Astro.">
 	<Navbar />
 	<main class="h-screen bg-red-400 mt-16">
-		<section class="h-screen">
-			<Marquee />
-			<!-- <Carousel /> -->
+		<section class="h-screen relative">
+			<Marquee className="absolute bottom-0 bg-[#c5f2e7]">
+				<li>
+					<img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
+				</li>
+				<li>
+					<p>Product Strategy</p>
+				</li>
+				<li>
+					<img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
+				</li>
+				<li>
+					<p>Graphic Design</p>
+				</li>
+				<li>
+					<img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
+				</li>
+				<li>
+					<p>Brand Development</p>
+				</li>
+				<li>
+					<img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
+				</li>
+				<li>
+					<p>UX & Product Design</p>
+				</li>
+			</Marquee>
 		</section>
 
 		<section class="h-screen bg-blue-300 overflow-hidden relative">

@@ -1,42 +1,36 @@
 ---
+const { className } = Astro.props;
 
 ---
 
-<div class="marquee">
+<div class={`marquee ${className}`}>
 	<ul class="marquee-content">
-		<li>
-      <img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
-		</li>
-    <li>
-      <p>Product Strategy</p>
-    </li>
-    <li>
-      <img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
-    </li>
-    <li>
-      <p>Graphic Design</p>
-    </li>
-    <li>
-      <img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
-    </li>
-    <li>
-      <p>Brand Development</p>
-    </li>
-    <li>
-      <img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
-    </li>
-    <li>
-      <p>UX & Product Design</p>
-    </li>
+    <slot />
 	</ul>
 </div>
 
-<style>
+<style is:global>
+.marquee-content li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  flex-shrink: 0;
+  max-height: 100%;
+  width: var(--marquee-element-width);
+  font-size: 2.3rem;
+  white-space: nowrap;
+}
 
+.marquee-content li img {
+  height: auto;
+}
+</style>
+
+<style>
 :root {
   --marquee-width: 100vw;
   --marquee-height: 10vh;
-  /* --marquee-elements: 12; */ /* defined with JavaScript */
   --marquee-elements-displayed: 5;
   --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
   --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
@@ -45,10 +39,7 @@
 .marquee {
   width: var(--marquee-width);
   height: var(--marquee-height);
-  background-color: #c5f2e7;
-  color: #eee;
   overflow: hidden;
-  position: relative;
   width: 100vw;
 }
 .marquee-content {
@@ -63,22 +54,6 @@
 @keyframes scrolling {
   0% { transform: translateX(0); }
   100% { transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements))); }
-}
-.marquee-content li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #333;
-  flex-shrink: 0;
-  max-height: 100%;
-  width: var(--marquee-element-width);
-  /* font-size: calc(var(--marquee-height)*3/4); 5rem; */
-  font-size: 2.3rem;
-  white-space: nowrap;
-}
-
-.marquee-content li img {
-  height: auto;
 }
 
 @media (max-width: 600px) {
