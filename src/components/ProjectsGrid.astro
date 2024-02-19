@@ -1,8 +1,7 @@
 ---
-
 ---
 
-<div class="bento-grid carousel-content">
+<div class="bento-grid carousel-content grid-cols-2 lg:grid-cols-4">
   <div class="scroll-up">
     <div id="projectDetail"></div>
     <img src="https://images.pexels.com/photos/5386829/pexels-photo-5386829.jpeg" alt="">
@@ -52,9 +51,10 @@
   /* GRID */
   .bento-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: 100%;
     gap: 30px;
+    height: 90vh;
+    overflow: hidden;
   }
 
   #projectDetail {

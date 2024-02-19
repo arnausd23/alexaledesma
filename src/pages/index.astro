@@ -1,14 +1,18 @@
 ---
 import Marquee from '../components/Marquee.astro';
+import RotatingText from '../components/RotatingText.astro';
 import Navbar from '../components/Navbar.astro';
 import ProjectsGrid from '../components/ProjectsGrid.astro';
 import Layout from '../layouts/Layout.astro';
+import Section from '../layouts/Section.astro';
+import Button from '../components/Button.astro'
+import Arrow from '../components/Icons/Arrow.astro'
 ---
 
 <Layout title="Welcome to Astro.">
 	<Navbar />
 	<main class="h-screen bg-red-400 mt-16">
-		<section class="h-screen relative">
+		<Section>
 			<Marquee className="absolute bottom-0 bg-[#c5f2e7]">
 				<li>
 					<img src="https://assets-global.website-files.com/64f83b3ea875da04ea56a07f/650987062931ef73d6d9277c_star.svg" loading="lazy" alt="">
@@ -35,10 +39,19 @@ import Layout from '../layouts/Layout.astro';
 					<p>UX & Product Design</p>
 				</li>
 			</Marquee>
-		</section>
+		</Section>
 
-		<section class="h-screen bg-blue-300 overflow-hidden relative">
+		<Section className="overflow-hidden bg-slate-200">
+			<h2 class="text-3xl text-center mb-20">Texto explicando los tipos de proyectos que haces</h2>
 			<ProjectsGrid/>
-		</section> 
+			<Button className="flex items-center gap-3 py-3 px-6 hover:bg-primary hover:text-white rounded-3xl my-0 mx-auto mt-16 transition-colors duration-300">
+				<span class="whitespace-nowrap">View All Projects</span>
+				<Arrow className="w-7"/>
+			</Button>
+		</Section> 
+		
+		<Section>
+			<RotatingText />
+		</Section>
 	</main>
 </Layout>
