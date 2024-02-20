@@ -1,16 +1,14 @@
 ---
+import Button from '../components/Button.astro';
+import Arrow from '../components/Icons/Arrow.astro';
 import Marquee from '../components/Marquee.astro';
-import RotatingText from '../components/RotatingText.astro';
-import Navbar from '../components/Navbar.astro';
 import ProjectsGrid from '../components/ProjectsGrid.astro';
+import RotatingText from '../components/RotatingText.astro';
 import Layout from '../layouts/Layout.astro';
 import Section from '../layouts/Section.astro';
-import Button from '../components/Button.astro'
-import Arrow from '../components/Icons/Arrow.astro'
 ---
 
-<Layout title="Welcome to Astro.">
-	<Navbar />
+<Layout title="Alexaledesma">
 	<main class="h-screen bg-red-400 mt-16">
 		<Section>
 			<Marquee className="absolute bottom-0 bg-[#c5f2e7]">
@@ -44,9 +42,13 @@ import Arrow from '../components/Icons/Arrow.astro'
 		<Section className="overflow-hidden bg-slate-200">
 			<h2 class="text-3xl text-center mb-20">Texto explicando los tipos de proyectos que haces</h2>
 			<ProjectsGrid/>
-			<Button className="flex items-center gap-3 py-3 px-6 hover:bg-primary hover:text-white rounded-3xl my-0 mx-auto mt-16 transition-colors duration-300">
+			<Button 
+				className="flex items-center gap-3 py-3 px-6 hover:bg-primary hover:text-white rounded-3xl my-0 mx-auto mt-16 transition-colors duration-300"
+				href="/cases"
+				transition:name='projects-grid'
+			>
 				<span class="whitespace-nowrap">View All Projects</span>
-				<Arrow className="w-7"/>
+				<Arrow className="w-7" color="black"/>
 			</Button>
 		</Section> 
 		

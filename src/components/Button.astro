@@ -1,7 +1,13 @@
 ---
-  const {className} = Astro.props;
+  const {className, href} = Astro.props;
 ---
 
-<button class={className}>
+<a class={`button text-center w-fit cursor-pointer ${className}`} href={href}>
   <slot/>
-</button>
+</a>
+
+<style is:global>
+  .button:hover svg path {
+    stroke: white
+  }
+</style>
