@@ -1,8 +1,13 @@
 ---
-  const {className, href} = Astro.props;
+  interface Props {
+    className: string;
+    href?: string;
+    id?: string;
+  }
+  const {className, href, id} = Astro.props;
 ---
 
-<a class={`button text-center w-fit cursor-pointer ${className}`} href={href}>
+<a id={id} class={`button text-center w-fit cursor-pointer ${className}`} href={href}>
   <slot/>
 </a>
 

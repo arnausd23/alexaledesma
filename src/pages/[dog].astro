@@ -1,7 +1,7 @@
 ---
 
 export async function getStaticPaths() {
-  function extractBreed(url) {
+  function extractBreed(url: string) {
     const start = url.indexOf('breeds/') + 'breeds/'.length;
     const end = url.indexOf('/', start);
     return url.slice(start, end);

@@ -1,0 +1,54 @@
+---
+  import Button from './Button.astro'
+import Arrow from './Icons/Arrow.astro';
+---
+
+<section id="contact" class="relative py-10 px-5 lg:py-20 bg-secondary">
+  <form id="contactForm" class="relative z-10 bg-white py-14 lg:pt-10 lg:pb-20 px-6 lg:px-10 lg:w-1/2 lg:my-0 lg:mx-auto rounded-lg shadow-2xl">
+    <h2 class="text-xl font-bold mb-5 text-center underline uppercase">Contact</h2>
+    <p class="mb-16">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid iste unde sit alias doloremque quo quasi tempora quisquam quaerat, necessitatibus eligendi obcaecati, fugiat reprehenderit.</p>
+    <fieldset class="flex flex-col mb-10">
+      <label class="mb-2">Add your full name:</label>
+      <input
+        id="fullName"
+        class="bg-[#f6f6f6] rounded-md p-2 focus-visible:outline-[#eaeaea]"
+        type="text"
+      />
+    </fieldset>
+    <fieldset class="flex flex-col mb-10">
+      <label class="mb-2">Add your email:</label>
+      <input
+        id="email"
+        class="bg-[#f6f6f6] rounded-md p-2 focus-visible:outline-[#eaeaea]"
+        type="text"
+      />
+    </fieldset>
+    <fieldset class="flex flex-col mb-10">
+      <label class="mb-2">Message:</label>
+      <textarea
+        id="message"
+        class="bg-[#f6f6f6] rounded-md p-2 focus-visible:outline-[#eaeaea]"
+      />
+    </fieldset>
+
+    <Button 
+      className="flex items-center gap-3 py-3 px-6 hover:bg-primary hover:text-white rounded-3xl my-0 mx-auto mt-16 transition-colors duration-300"
+    >
+      <span class="whitespace-nowrap">Send</span>
+      <Arrow className="w-7" color="black"/>
+    </Button>
+  </form>
+</section>
+
+<script>  
+  const form = document.getElementById("contactForm");
+
+  if(!form) {
+    throw new Error('Form not found');
+  }
+
+  form.addEventListener("change", function (e) {
+    e.preventDefault();
+    console.log(form);
+  });
+</script>
