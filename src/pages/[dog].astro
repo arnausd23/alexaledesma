@@ -1,0 +1,25 @@
+---
+
+export async function getStaticPaths() {
+  function extractBreed(url) {
+    const start = url.indexOf('breeds/') + 'breeds/'.length;
+    const end = url.indexOf('/', start);
+    return url.slice(start, end);
+  }
+  let dogs = [
+    {params: {dog: 'clifford'}},
+    {params: {dog: 'rover'}},
+    {params: {dog: 'spot'}},
+  ];
+
+  const res = await (await fetch('https://dog.ceo/api/breeds/image/random')).json()
+  const dog = extractBreed(res.message);
+  dogs.push({params: {dog}});
+  console.log(dog, dogs)
+
+  return dogs
+}
+
+const { dog } = Astro.params;
+---
+<div>Good dog, {dog}!</div>
