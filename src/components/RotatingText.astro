@@ -1,28 +1,37 @@
-<svg id="rotatingText" viewBox="0 0 200 200" width="200" height="200">
-  <defs>
-    <path id="circle" d="M 100, 100
-            m -75, 0
-            a 75, 75 0 1, 0 150, 0
-            a 75, 75 0 1, 0 -150, 0
-            ">
-    </path>
-  </defs>
-  <text>
-    <textPath xlink:href="#circle" class="text">
-      Part of a heart-healthy breakfast -
-    </textPath>
-  </text>
-</svg>
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
+---
+<div class="relative w-fit">
+  <svg id="rotatingText" viewBox="0 0 200 200" width="200" height="200" class="fill-primary">
+      <defs>
+        <path id="circle" d="M 100, 100
+        m -75, 0
+        a 75, 75 0 1, 0 150, 0
+        a 75, 75 0 1, 0 -150, 0
+        ">
+      </path>
+    </defs>
+    <text>
+      <textPath xlink:href="#circle" class="text">
+        Motion Design - Motion Design -
+      </textPath>
+    </text>
+  </svg>
+
+  <Image src={logo} alt="Brand logo" width={50} height={50} class="absolute top-1/2 left-1/2 logo-image"/>
+</div>
 
 <style>
+  .logo-image {
+    transform: translate(-50%, -50%);
+  }
   .text {
     font-weight: 600;
     letter-spacing: 1.7px;
     text-transform: uppercase;
     font-family: 'Kanit';
-    font-size: 17px;
-    fill: #111;
-    text-shadow: 2px 0px #ccc;
+    font-size: 22.9px;
   }
   .main {
     display: grid;
